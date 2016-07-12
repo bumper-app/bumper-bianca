@@ -1,2 +1,9 @@
 pytest==2.9.1
 pytest-cov==2.2.1
+rpy2
+sqlalchemy
+py-postgresql
+requests
+python-dateutil
+monthdelta
+dateutil
