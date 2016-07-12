@@ -14,7 +14,7 @@ from caslogging import logging
 from queue import *
 import threading
 import time
-from monthdelta import MonthDelta
+from monthdelta import *
 
 BACKGROUND_INTERVAL = 60  # wait 1 minutes
 
