@@ -2,6 +2,13 @@ python-package-boilerplate
 ==========================
 
 [![Build Status](https://travis-ci.org/bumper-app/bumper-bianca.png?branch=master)](https://travis-ci.org/bumper-app/bumper-bianca)
+
+[![Documentation Status](https://readthedocs.org/projects/bumper-bianca/badge/?version=latest)](http://bumper-bianca.readthedocs.org/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/pyversions/bumper-bianca.svg)](https://pypi.python.org/pypi/bumper-bianca/1.0.0)
+[![GitHub tag](https://img.shields.io/github/tag/ereOn/bumper-bianca.svg)](https://github.com/ereOn/bumper-bianca)
+[![PyPi version](https://img.shields.io/pypi/v/bumper-bianca.svg)](https://pypi.python.org/pypi/bumper-bianca/1.0.0)
+[![PyPi downloads](https://img.shields.io/pypi/dm/bumper-bianca.svg)](https://pypi.python.org/pypi/bumper-bianca/1.0.0)
+
 [![Requires.io](https://requires.io/github/bumper-app/bumper-bianca/requirements.svg?branch=master)](https://requires.io/github/bumper-app/bumper-bianca/requirements?branch=master)
 
 Boilerplate for a Python Package
