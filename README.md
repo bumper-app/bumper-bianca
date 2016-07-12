@@ -1,4 +1,4 @@
-python-package-boilerplate
+BIANCA
 ==========================
 
 [![Build Status](https://travis-ci.org/bumper-app/bumper-bianca.png?branch=master)](https://travis-ci.org/bumper-app/bumper-bianca)
@@ -11,34 +11,11 @@ python-package-boilerplate
 
 [![Requires.io](https://requires.io/github/bumper-app/bumper-bianca/requirements.svg?branch=master)](https://requires.io/github/bumper-app/bumper-bianca/requirements?branch=master)
 
-Boilerplate for a Python Package
 
-## Package
+## Dependencies
 
-Basic structure of package is
+External depedencies are Postgresql & R
 
-```
-├── README.md
-├── packagename
-│   ├── __init__.py
-│   ├── packagename.py
-│   └── version.py
-├── pytest.ini
-├── requirements.txt
-├── setup.py
-└── tests
-    ├── __init__.py
-    ├── helpers
-    │   ├── __init__.py
-    │   └── my_helper.py
-    ├── tests_helper.py
-    └── unit
-        ├── __init__.py
-        ├── test_example.py
-        └── test_version.py
-```
-
-## Requirements
 
   ```
   gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
@@ -51,7 +28,7 @@ Finally, we can install R by running the following commands:
 
   ```
   sudo apt-get update
-  sudo apt-get install r-base
+  sudo apt-get install r-base postgresql postgresql-contrib
   ```
 
 Package requirements are handled using pip. To install them do
@@ -70,13 +47,6 @@ Run your tests with ```py.test``` in the root directory.
 Coverage is ran by default and is set in the ```pytest.ini``` file.
 To see an html output of coverage open ```htmlcov/index.html``` after running the tests.
 
-## Travis CI
-
-There is a ```.travis.yml``` file that is set up to run your tests for python 2.7
-and python 3.2, should you choose to use it.
-
-
-Ingests and analyzes code repositories
 
 ##Installation
 1. Clone this repository in to an empty directory
@@ -88,21 +58,6 @@ logging: information about how to write logging information
 gmail: gmail account to be used to send cas notifications
 repoUpdates: how often repositories should be updated for new commits
 system: how many worker threads the cas system can use to analyze and ingest repos.
-
-###Dependencies
-Additional Instructions are available in SETUP.md
-* Python  >= 3.3
-* Pip for Python Version > 3.3
-* Git > 1.7
-* R
-* python-dev
-* rpy2
-* requests
-* dateutil
-* sqlalchemy
-* py-postgresql
-* GNU grep
-* MonthDelta
 
 ###First-Time Database Setup
 Set up the database for the first time by running `python script.py initDb`
