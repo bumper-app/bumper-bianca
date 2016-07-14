@@ -8,7 +8,7 @@ import json
 #from StringIO import StringIO
 import os
 
-config = json.load(open('./config.json'))
+config = json.load(open('./bianca/config.json'))
 
 # Defining default repository path if not specified
 if config['repo_location']['location'] and config['repo_location']['location'] != "":
