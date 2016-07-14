@@ -19,7 +19,6 @@ class Repository(Base):
     id = Column(String, primary_key=True)
     name = Column(String)
     url = Column(String)
-
     creation_date = Column(String)
     ingestion_date = Column(String)
     last_ingested_commit = Column(String)
@@ -29,13 +28,28 @@ class Repository(Base):
     listed = Column(Boolean)
     last_data_dump = Column(String)
 
-    def __init__(self, repoDict):
-        """
-        __init__(): Dictonary -> NoneType
-        """
+    def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid1())
         self.creation_date = str(datetime.now().replace(microsecond=0))
-        self.__dict__.update(repoDict)
+        self.url = kwargs.pop('url', None)
 
-    def __repr__(self):
-        return "<Repository: %s - %s>" % (self.name, self.id)
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'url': self.url,
+            'creation_date': self.creation_date,
+            'ingestion_date': self.ingestion_date,
+            'last_ingested_commit': self.last_ingested_commit,
+            'analysis_date': self.analysis_date,
+            'status': self.status,
+            'email': self.email,
+            'listed': self.listed,
+            'last_data_dump': self.last_data_dump
+        }
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+    # def __repr__(self):
+    #     return "<Repository: %s - %s>" % (self.name, self.id)
