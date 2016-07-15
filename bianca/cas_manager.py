@@ -105,7 +105,7 @@ class CAS_Manager(threading.Thread):
 			# as there may be bugs introduced in those months that haven't been fixed, skewing
 			# our model.
 			glm_model_time =  int(config['glm_modeling']['months']) 
-			data_months_datetime = datetime.utcnow() - MonthDelta(glm_model_time)
+			data_months_datetime = datetime.utcnow() - monthdelta(glm_model_time)
 			data_months_unixtime = calendar.timegm(data_months_datetime.utctimetuple())
 		
 			# all commits for repo prior to current time - glm model time
