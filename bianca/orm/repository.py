@@ -33,23 +33,8 @@ class Repository(Base):
         self.creation_date = str(datetime.now().replace(microsecond=0))
         self.url = kwargs.pop('url', None)
 
-    def serialize(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'url': self.url,
-            'creation_date': self.creation_date,
-            'ingestion_date': self.ingestion_date,
-            'last_ingested_commit': self.last_ingested_commit,
-            'analysis_date': self.analysis_date,
-            'status': self.status,
-            'email': self.email,
-            'listed': self.listed,
-            'last_data_dump': self.last_data_dump
-        }
-
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-    # def __repr__(self):
-    #     return "<Repository: %s - %s>" % (self.name, self.id)
+    def __repr__(self):
+        return "<Repository: %s - %s>" % (self.name, self.id)
