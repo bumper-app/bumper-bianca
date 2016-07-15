@@ -6,6 +6,7 @@ import logging
 import math                               # Required for the math.log function
 from ingester.commitFile import *         # Represents a file
 from classifier.classifier import *       # Used for classifying each commit
+from analyzer.git_commit_linker import *
 from config import REPO_DIRECTORY, config
 import time
 
@@ -334,6 +335,12 @@ class Git():
                 commit_object[key] = value
                 # End property loop
             # End pretty info loop
+
+
+            print(commit_object)
+
+            gc = GitCommitLinker(repo.id)
+            print(gc.getModifiedRegions(commit_object))
 
             # Get the stat properties
             stats = statCommit.split("\\n")
