@@ -35,16 +35,16 @@ class Notifier:
 		Notify all subscribers that repo has been analyzed and is ready
 		to be viewed
 		"""
-
-		FROM = "cas.notifier@gmail.com"
-		TO = self.subscribers
-		SUBJECT = "Your repository has been analyzed"
-		TEXT = "Your analyzed repository is now ready to be viewed at http://kiwi.se.rit.edu/repo/" + self.repo
-
-		# prepare actual message
-		message = """\From: %s\nTo: %s\nSubject: %s\n\n%s""" % (FROM, ", ".join(TO), SUBJECT, TEXT)
-		
 		try:
+			FROM = "cas.notifier@gmail.com"
+			TO = self.subscribers
+			SUBJECT = "Your repository has been analyzed"
+			TEXT = "Your analyzed repository is now ready to be viewed at http://kiwi.se.rit.edu/repo/" + self.repo
+
+			# prepare actual message
+			message = """\From: %s\nTo: %s\nSubject: %s\n\n%s""" % (FROM, ", ".join(TO), SUBJECT, TEXT)
+		
+		
 			server = smtplib.SMTP("smtp.gmail.com", 587)
 			server.ehlo()
 			server.starttls()
