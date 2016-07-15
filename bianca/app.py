@@ -7,10 +7,12 @@ from caslogging import logging
 from queue import *
 import threading
 import time
+from cas_manager import *
 from monthdelta import *
 
 app = Flask(__name__)
 session = Session()
+cas = CAS_Manager()
 
 @app.route('/')
 def index():
@@ -30,10 +32,13 @@ def create_repo():
     print(request.json['url']);
 
     if len(repos) == 0:
-        print("hi")
         repo = Repository(url=request.json['url'])
         session.add(repo)
         session.commit()
+        ingest(repo.id)
+        analyze(repo.id)
+        cas.modelQueue.put(repo.id)
+        cas.checkBuildModel()
     else:
         repo = repos[0]
 
